@@ -3,6 +3,7 @@ ARG NEXUS_VERSION=3.18.0
 FROM maven:3-jdk-8-alpine AS build
 ARG NEXUS_VERSION=3.18.0
 ARG NEXUS_BUILD=01
+ARG MAVEN_OPTS
 
 COPY . /nexus-repository-helm/
 RUN cd /nexus-repository-helm/; sed -i "s/3.18.0-01/${NEXUS_VERSION}-${NEXUS_BUILD}/g" pom.xml; \
